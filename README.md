@@ -1,2 +1,2 @@
-# cs-template
-C# Template
+# action-repo-visibility
+Repo visibily github action
