@@ -18,10 +18,12 @@ rm $OUTPUT
 
 echo Private: $PRIVATE
 if [ "$PRIVATE" = "true" ]; then
+    echo "Repo is private"
     echo "::set-output name=is_public::false"
     echo "::set-output name=is_private::true"
     echo "::set-output name=status::private"
 else
+    echo "Repo is Public"
     echo "::set-output name=is_public::true"
     echo "::set-output name=is_private::false"
     echo "::set-output name=status::public"
