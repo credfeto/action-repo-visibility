@@ -7,6 +7,7 @@ Please ADD ALL Changes to the UNRELASED SECTION and not a specific release
 
 ## [Unreleased]
 ### Added
+- Checks to see if repo is public or private
 ### Fixed
 ### Changed
 - FF-3881 - Updated DotNet SDK to 6.0.101

@@ -42,3 +42,7 @@ jobs:
       - run: echo "Public ${{ steps.visibility.outputs.is_public }}"
       - run: echo "Private ${{ steps.visibility.outputs.is_private }}"
 ```
+
+## Changelog
+
+See [CHANGELOG](CHANGELOG.md) for history
