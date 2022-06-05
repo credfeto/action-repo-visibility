@@ -1,4 +1,4 @@
-name: Test Workdlow
+name: Test Workflow
 
 on:
   push:
@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: credfeto/action-repo-visibility@master
+      - uses: credfeto/action-repo-visibility@main
         id: visibility
         with: 
           repository: ${{ github.repository }}
