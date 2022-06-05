@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: credfeto/action-repo-visibility@main
+      - uses: credfeto/action-repo-visibility@v1.0.0
         id: visibility
         with: 
           # optional parameter defaults to the current repo
