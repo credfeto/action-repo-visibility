@@ -1,0 +1,28 @@
+name: 'Is Repo Private'
+description: 'Checks to see if repository is pubicly visible'
+branding:
+  icon: 'git-merge'
+  color: 'gray-dark'
+inputs:
+  token:
+    description: 'Repository access token'
+    default: ${{ github.token }}
+    required: false
+  repository:
+    description: 'The repository to check'
+    default: ${{ github.repository }}
+    required: false
+outputs:
+  is_public:
+    description: Whether the repo is public
+  is_private:
+    description: Whether the repo is private
+  status:
+    description: Status of the repo (public|private)
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+     - ${{ inputs.token }}
+     - ${{ inputs.repository }}
+ 

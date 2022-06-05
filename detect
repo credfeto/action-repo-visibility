@@ -1,0 +1,29 @@
+#!/bin/sh -l
+set -e
+
+TOKEN=$1
+REPO=$2
+URL=https://api.github.com/repos/${REPO}
+OUTPUT=repo.json
+CODE=$(curl --silent --write-out '%{http_code}' --output $OUTPUT --header "Authorization: token ${TOKEN}" ${URL})
+echo $CODE
+
+if [ $CODE -ne 200 ]; then
+  echo "Failed to get repo info"
+  exit 1
+fi
+
+PRIVATE=$(sed -n 's|.*"private":\s*\([^"]*\),.*|\1|p' $OUTPUT)
+rm $OUTPUT
+
+echo Private: $PRIVATE
+if [ "$PRIVATE" = "true" ]; then
+    echo "::set-output name=is_public::false"
+    echo "::set-output name=is_private::true"
+    echo "::set-output name=status::private"
+else
+    echo "::set-output name=is_public::true"
+    echo "::set-output name=is_private::false"
+    echo "::set-output name=status::public"
+fi
+
