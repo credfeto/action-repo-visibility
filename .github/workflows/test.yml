@@ -15,8 +15,10 @@ jobs:
           repository: ${{ github.repository }}
           token: ${{ github.token }}
 
-      - if: ${{ steps.visibility.is_public }}
+      - if: ${{ steps.visibility.is_public == 'true' }}
         run: echo "Repo is Public"
 
-      - if: ${{ steps.visibility.is_private }}
+      - if: ${{ steps.visibility.is_private == 'true' }}
         run: echo "Repo is PRIVATE"        
+
+      - run: echo "Repo is ${{ steps.visibility.status }}"
