@@ -4,7 +4,7 @@ on:
   push:
 
 jobs:
-  update-labels-config:
+  test:
 
     runs-on: ubuntu-latest
 
