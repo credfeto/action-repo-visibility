@@ -21,4 +21,6 @@ jobs:
       - if: ${{ steps.visibility.is_private == 'true' }}
         run: echo "Repo is PRIVATE"        
 
-      - run: echo "Repo is ${{ steps.visibility.status }}"
+      - run: echo "Status ${{ steps.visibility.status }}"
+      - run: echo "Public ${{ steps.visibility.is_public }}"
+      - run: echo "Private ${{ steps.visibility.is_private }}"
