@@ -14,12 +14,8 @@ if [ $CODE -ne 200 ]; then
 fi
 
 PRIVATE=$(jq ".private" $OUTPUT)
-
-#PRIVATE=$(sed -n 's|.*"private":\s*\([^"]*\),.*|\1|p' $OUTPUT)
 rm $OUTPUT
 
-echo "Private: $PRIVATE"
-echo "::echo::on"
 if [ "$PRIVATE" = "true" ]; then
     echo "Repo is private"
     echo "::set-output name=is_public::false"
