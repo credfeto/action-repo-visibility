@@ -13,7 +13,9 @@ if [ $CODE -ne 200 ]; then
   exit 1
 fi
 
-PRIVATE=$(sed -n 's|.*"private":\s*\([^"]*\),.*|\1|p' $OUTPUT)
+PRIVATE=$(jq ".private" $OUTPUT)
+
+#PRIVATE=$(sed -n 's|.*"private":\s*\([^"]*\),.*|\1|p' $OUTPUT)
 rm $OUTPUT
 
 echo Private: $PRIVATE
