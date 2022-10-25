@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: credfeto/action-repo-visibility@main
+      - uses: credfeto/action-repo-visibility@feat/use-environment-files
         id: visibility
-        with: 
+        with:
           repository: ${{ github.repository }}
           token: ${{ github.token }}
 
@@ -19,7 +19,7 @@ jobs:
         run: echo "Repo is Public"
 
       - if: ${{ steps.visibility.outputs.is_private == 'true' }}
-        run: echo "Repo is PRIVATE"        
+        run: echo "Repo is PRIVATE"
 
       - run: echo "Status ${{ steps.visibility.outputs.status }}"
       - run: echo "Public ${{ steps.visibility.outputs.is_public }}"
