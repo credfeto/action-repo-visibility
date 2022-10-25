@@ -9,6 +9,7 @@ Please ADD ALL Changes to the UNRELASED SECTION and not a specific release
 ### Added
 ### Fixed
 ### Changed
+- Switched to using environment files from ::set-output
 ### Removed
 ### Deployment Changes
 

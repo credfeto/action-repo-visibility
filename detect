@@ -18,13 +18,16 @@ rm $OUTPUT
 
 if [ "$PRIVATE" = "true" ]; then
     echo "Repo is private"
-    echo "::set-output name=is_public::false"
-    echo "::set-output name=is_private::true"
-    echo "::set-output name=status::private"
+    {
+      echo "is_public=false"
+      echo "is_private=true"
+      echo "status=private"
+    } >> $GITHUB_OUTPUT
 else
     echo "Repo is Public"
-    echo "::set-output name=is_public::true"
-    echo "::set-output name=is_private::false"
-    echo "::set-output name=status::public"
+    {
+      echo "is_public=true"
+      echo "is_private=false"
+      echo "status=public"
+    } >> $GITHUB_OUTPUT
 fi
-
