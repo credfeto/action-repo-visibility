@@ -20,8 +20,10 @@ outputs:
   status:
     description: Status of the repo (public|private)
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-     - ${{ inputs.token }}
-     - ${{ inputs.repository }}
+  using: 'composite'
+  steps:
+  - run: $GITHUB_ACTION_PATH/script.sh ${{ inputs.token }} ${{ inputs.repository }}
+    shell: bash
+    env:
+      GITHUB_TOKEN: ${{ inputs.token }}
+      GITHUB_REPOSITORY: ${{ inputs.repository }}
