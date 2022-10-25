@@ -10,6 +10,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ### Fixed
 ### Changed
 - Switched to using environment files from ::set-output
+- Changed to a composite action rather than using docker
 ### Removed
 ### Deployment Changes
 
