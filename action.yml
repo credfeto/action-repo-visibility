@@ -1,5 +1,5 @@
 name: 'Is Repo Private'
-description: 'Checks to see if repository is pubicly visible'
+description: 'Checks to see if repository is publicly visible'
 branding:
   icon: 'git-merge'
   color: 'gray-dark'
@@ -25,4 +25,3 @@ runs:
   args:
      - ${{ inputs.token }}
      - ${{ inputs.repository }}
- 
