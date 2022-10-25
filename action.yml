@@ -1,5 +1,5 @@
 name: 'Is Repo Private'
-description: 'Checks to see if repository is pubicly visible'
+description: 'Checks to see if repository is publicly visible'
 branding:
   icon: 'git-merge'
   color: 'gray-dark'
@@ -20,9 +20,10 @@ outputs:
   status:
     description: Status of the repo (public|private)
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-     - ${{ inputs.token }}
-     - ${{ inputs.repository }}
- 
+  using: 'composite'
+  steps:
+  - run: $GITHUB_ACTION_PATH/detect ${{ inputs.token }} ${{ inputs.repository }}
+    shell: bash
+    env:
+      GITHUB_TOKEN: ${{ inputs.token }}
+      GITHUB_REPOSITORY: ${{ inputs.repository }}
