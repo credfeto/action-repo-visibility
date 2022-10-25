@@ -22,7 +22,7 @@ outputs:
 runs:
   using: 'composite'
   steps:
-  - run: $GITHUB_ACTION_PATH/script.sh ${{ inputs.token }} ${{ inputs.repository }}
+  - run: $GITHUB_ACTION_PATH/detect ${{ inputs.token }} ${{ inputs.repository }}
     shell: bash
     env:
       GITHUB_TOKEN: ${{ inputs.token }}
