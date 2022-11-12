@@ -1,7 +1,6 @@
 name: Test Workflow
 
-on:
-  [push]
+on: [push]
 
 jobs:
   test:
