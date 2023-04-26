@@ -33,13 +33,13 @@ else
     echo "Repo is Public"
     echo "is_public=true"
     echo "is_public=true" >> "$GITHUB_OUTPUT"
-    echo "REPO_IS_PUBLIC=true" >> "$GITHUB_OUTPUT"
+    echo "REPO_IS_PUBLIC=true" >> "$GITHUB_ENV"
     echo "is_private=false"
     echo "is_private=false" >> "$GITHUB_OUTPUT"
-    echo "REPO_IS_PRIVATE=false" >> "$GITHUB_OUTPUT"
+    echo "REPO_IS_PRIVATE=false" >> "$GITHUB_ENV"
     echo "status=public"
     echo "status=public" >> "$GITHUB_OUTPUT"
-    echo "REPO_STATUS=public" >> "$GITHUB_OUTPUT"
+    echo "REPO_STATUS=public" >> "$GITHUB_ENV"
 fi
 
 cat $GITHUB_OUTPUT
