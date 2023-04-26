@@ -21,17 +21,25 @@ if [ "$PRIVATE" = "true" ]; then
     echo "Repo is private"
     echo "is_public=false"
     echo "is_public=false">> "$GITHUB_OUTPUT"
+    echo "REPO_IS_PUBLIC=false">> "$GITHUB_ENV"
     echo "is_private=true"
     echo "is_private=true">> "$GITHUB_OUTPUT"
+    echo "REPO_IS_PRIVATE=true">> "$GITHUB_ENV"
     echo "status=private"
     echo "status=private" >> "$GITHUB_OUTPUT"
+    echo "REPO_STATUS=private" >> "$GITHUB_ENV"
 
 else
     echo "Repo is Public"
     echo "is_public=true"
     echo "is_public=true" >> "$GITHUB_OUTPUT"
+    echo "REPO_IS_PUBLIC=true" >> "$GITHUB_OUTPUT"
     echo "is_private=false"
     echo "is_private=false" >> "$GITHUB_OUTPUT"
+    echo "REPO_IS_PRIVATE=false" >> "$GITHUB_OUTPUT"
     echo "status=public"
     echo "status=public" >> "$GITHUB_OUTPUT"
+    echo "REPO_STATUS=public" >> "$GITHUB_OUTPUT"
 fi
+
+cat $GITHUB_OUTPUT
