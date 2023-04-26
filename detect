@@ -13,7 +13,6 @@ if [ $CODE -ne 200 ]; then
   exit 1
 fi
 
-echo "env: $GITHUB_OUTPUT"
 PRIVATE=$(jq ".private" $OUTPUT)
 rm $OUTPUT
 
@@ -41,5 +40,3 @@ else
     echo "status=public" >> "$GITHUB_OUTPUT"
     echo "REPO_STATUS=public" >> "$GITHUB_ENV"
 fi
-
-cat $GITHUB_OUTPUT
