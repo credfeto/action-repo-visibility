@@ -24,6 +24,3 @@ runs:
   steps:
   - run: $GITHUB_ACTION_PATH/detect ${{ inputs.token }} ${{ inputs.repository }}
     shell: bash
-    env:
-      GITHUB_TOKEN: ${{ inputs.token }}
-      GITHUB_REPOSITORY: ${{ inputs.repository }}
