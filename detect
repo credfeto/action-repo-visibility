@@ -13,25 +13,25 @@ if [ $CODE -ne 200 ]; then
   exit 1
 fi
 
-cat $OUTPUT
+echo "env: $GITHUB_OUTPUT"
 PRIVATE=$(jq ".private" $OUTPUT)
 rm $OUTPUT
 
 if [ "$PRIVATE" = "true" ]; then
     echo "Repo is private"
     echo "is_public=false"
-    echo "is_public=false">> $GITHUB_OUTPUT
+    echo "is_public=false">> "$GITHUB_OUTPUT"
     echo "is_private=true"
-    echo "is_private=true">> $GITHUB_OUTPUT
+    echo "is_private=true">> "$GITHUB_OUTPUT"
     echo "status=private"
-    echo "status=private" >> $GITHUB_OUTPUT
+    echo "status=private" >> "$GITHUB_OUTPUT"
 
 else
     echo "Repo is Public"
     echo "is_public=true"
-    echo "is_public=true" >> $GITHUB_OUTPUT
+    echo "is_public=true" >> "$GITHUB_OUTPUT"
     echo "is_private=false"
-    echo "is_private=false" >> $GITHUB_OUTPUT
+    echo "is_private=false" >> "$GITHUB_OUTPUT"
     echo "status=public"
-    echo "status=public" >> $GITHUB_OUTPUT
+    echo "status=public" >> "$GITHUB_OUTPUT"
 fi
