@@ -5,7 +5,7 @@ TOKEN=$1
 REPO=$2
 URL=https://api.github.com/repos/${REPO}
 OUTPUT=repo.json
-CODE=$(curl --silent --write-out '%{http_code}' --output $OUTPUT --header "Authorization: token ${TOKEN}" "${URL}")
+CODE=$(curl --silent --write-out '%{http_code}' --output "$OUTPUT" --header "Authorization: token ${TOKEN}" "${URL}")
 echo "HTTP Status: $CODE"
 
 if [ $CODE -ne 200 ]; then
